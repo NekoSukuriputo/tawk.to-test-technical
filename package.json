@@ -25,6 +25,7 @@
 	},
 	"dependencies": {
 		"axios": "^0.19.2",
+		"flowbite": "^2.5.1",
 		"vue": "^2.6.11",
 		"vuex": "^4.1.0"
 	},
