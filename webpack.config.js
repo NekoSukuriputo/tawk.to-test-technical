@@ -44,6 +44,7 @@ module.exports = {
   resolve: {
     alias: {
       fonts: path.resolve(__dirname, "src/assets/fonts"),
+      "@": path.resolve(__dirname, "src"),
     },
   },
   devServer: {
@@ -69,6 +70,23 @@ module.exports = {
           }
         }
         res.json(author);
+      });
+
+      app.get("/api/articles", function (req, res) {
+        res.json(dataObj.articles);
+      });
+
+      app.get("/api/article/*", function (req, res) {
+        let article = {};
+        const articleId = req.params["0"];
+
+        for (let index = 0; index < dataObj.articles.length; index++) {
+          if (article.articles[index].id === articleId) {
+            author = dataObj.articles[index];
+            break;
+          }
+        }
+        res.json(article);
       });
 
       app.get("/api/search/*", function (req, res) {
