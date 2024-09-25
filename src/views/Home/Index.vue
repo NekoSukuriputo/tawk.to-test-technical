@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import Header from "../components/Header.vue";
+import Header from "../components/home/Header.vue";
 export default {
   name: "Home",
   components: {
