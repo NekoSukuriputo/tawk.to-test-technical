@@ -15,13 +15,11 @@
 
 <script>
 import CardCategory from "../../components/home/CardCategory.vue";
-import Header from "../components/home/Header.vue";
 import { mapGetters } from "vuex";
 
 export default {
   name: "HomePage",
   components: {
-    HeaderHero: Header,
     CardCategory,
   },
   mounted() {
