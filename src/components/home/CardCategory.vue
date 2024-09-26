@@ -13,7 +13,7 @@
       <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
         {{ totalArticle }} Articles
       </p>
-      <p>Last Update {{ timeAgo(dateTime) }}</p>
+      <p>Last Update {{ dateTime | timeAgo }}</p>
     </div>
   </a>
 </template>
@@ -39,14 +39,7 @@ export default {
       default: "",
     },
   },
-  methods: {
-    timeAgo(dateString) {
-      if (dateString) {
-        return moment(dateString).fromNow();
-      }
-      return "";
-    },
-  },
+  methods: {},
 };
 </script>
 

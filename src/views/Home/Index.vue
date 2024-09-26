@@ -1,6 +1,5 @@
 <template>
   <div>
-    <HeaderHero />
     <div class="bg-gray-100 grid grid-cols-1 md:grid-cols-3 gap-4">
       <div v-for="category in categories" :key="category.id">
         <CardCategory
@@ -20,7 +19,7 @@ import Header from "../components/home/Header.vue";
 import { mapGetters } from "vuex";
 
 export default {
-  name: "Home",
+  name: "HomePage",
   components: {
     HeaderHero: Header,
     CardCategory,
