@@ -32,7 +32,8 @@ export default {
     async getCategories({ commit }) {
       try {
         const categories = await api.getCategories();
-        commit("SET_CATEGORIES", categories);
+        const activeCategories = categories.filter((c) => c.enabled);
+        commit("SET_CATEGORIES", activeCategories);
       } catch (error) {
         console.log(error);
       }

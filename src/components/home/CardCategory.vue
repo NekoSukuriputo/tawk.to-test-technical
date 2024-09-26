@@ -1,17 +1,20 @@
 <template>
   <a
     href="#"
-    class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
+    class="flex flex-col items-center max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
   >
+    <i :class="`fa-solid fa-${icon}`"></i>
     <h5
       class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
     >
-      Noteworthy technology acquisitions 2021
+      {{ category }}
     </h5>
-    <p class="font-normal text-gray-700 dark:text-gray-400">
-      Here are the biggest enterprise technology acquisitions of 2021 so far, in
-      reverse chronological order.
-    </p>
+    <div class="flex flex-col items-center justify-between">
+      <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+        {{ totalArticle }} Articles
+      </p>
+      <p>Last Update {{ timeAgo(dateTime) }}</p>
+    </div>
   </a>
 </template>
 
@@ -23,9 +26,25 @@ export default {
       type: String,
       default: "user",
     },
-    title: {
+    category: {
       type: String,
       default: "Card Category",
+    },
+    totalArticle: {
+      type: Number,
+      default: 0,
+    },
+    dateTime: {
+      type: String,
+      default: "",
+    },
+  },
+  methods: {
+    timeAgo(dateString) {
+      if (dateString) {
+        return moment(dateString).fromNow();
+      }
+      return "";
     },
   },
 };
