@@ -1,14 +1,16 @@
 import Vue from "vue";
 import Vuex from "vuex";
-import categories from "./categories";
-import authors from "../services/api/authors";
+import category from "./category";
+import author from "./author";
+import article from "./article";
 
 Vue.use(Vuex);
 
 export default new Vuex.Store({
   modules: {
-    categories,
-    authors,
+    category,
+    author,
+    article,
   },
   state: {},
   getters: {},
