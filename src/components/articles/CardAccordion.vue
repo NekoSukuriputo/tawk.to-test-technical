@@ -1,42 +1,40 @@
 <template>
-  <div id="accordion-collapse" data-accordion="collapse">
-    <h2 id="accordion-collapse-heading-1">
+  <div class="w-fullmx-auto bg-white rounded-lg overflow-hidden">
+    <div class="border-t border-gray-200">
       <button
-        type="button"
-        class="flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-500 border border-b-0 border-gray-200 rounded-t-xl focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 gap-3"
-        data-accordion-target="#accordion-collapse-body-1"
-        aria-expanded="true"
-        aria-controls="accordion-collapse-body-1"
+        @click="toggleAccordion"
+        class="w-full text-left p-4 border-b flex items-center justify-between text-gray-700 hover:bg-gray-100"
       >
-        <i :class="`fa-solid fa-${icon} mx-2`"></i>
-        <span>{{ title }}</span>
+        <div class="flex flex-row justify-start items-center">
+          <span class="mr-4">
+            <i :class="`fas fa-${icon} fa-md text-green-400`"></i>
+          </span>
+          <div>
+            <p class="font-bold">{{ title }}</p>
+            <p class="text-sm text-gray-500">
+              Updated {{ dateTime | formatDateSort }}
+            </p>
+          </div>
+        </div>
         <svg
-          data-accordion-icon
-          class="w-3 h-3 rotate-90 shrink-0"
-          aria-hidden="true"
-          xmlns="http://www.w3.org/2000/svg"
+          :class="{ 'rotate-180': isActive }"
+          class="w-6 h-6 text-gray-400 transform transition-transform"
           fill="none"
-          viewBox="0 0 10 6"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
         >
           <path
-            stroke="currentColor"
             stroke-linecap="round"
             stroke-linejoin="round"
             stroke-width="2"
-            d="M9 5 5 1 1 5"
-          />
+            d="M6 9l6 6 6-6"
+          ></path>
         </svg>
       </button>
-    </h2>
-    <div
-      id="accordion-collapse-body-1"
-      class="hidden"
-      aria-labelledby="accordion-collapse-heading-1"
-    >
-      <div
-        class="p-5 border border-b-0 border-gray-200 dark:border-gray-700 dark:bg-gray-900"
-      >
-        {{ content }}
+      <!-- Collapsible content -->
+      <div v-show="isActive" class="px-4 py-2">
+        <p class="text-gray-600">{{ content }}</p>
       </div>
     </div>
   </div>
@@ -63,7 +61,21 @@ export default {
       required: true,
     },
   },
+  data() {
+    return {
+      isActive: false,
+    };
+  },
+  methods: {
+    toggleAccordion() {
+      this.isActive = !this.isActive;
+    },
+  },
 };
 </script>
 
-<style></style>
+<style scoped>
+.rotate-180 {
+  transform: rotate(180deg);
+}
+</style>

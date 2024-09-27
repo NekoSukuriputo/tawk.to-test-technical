@@ -34,7 +34,7 @@ export default {
   actions: {
     async getArticles({ commit }) {
       try {
-        const articles = await api.getArticles();
+        const { data: articles } = await api.getArticles();
         commit("SET_ARTICLES", articles);
       } catch (error) {
         console.log(error);
@@ -42,7 +42,7 @@ export default {
     },
     async getArticle({ commit }, id) {
       try {
-        const article = await api.getArticle(id);
+        const { data: article } = await api.getArticle(id);
         commit("SET_ARTICLE", article);
       } catch (error) {
         console.log(error);
