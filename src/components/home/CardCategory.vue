@@ -1,6 +1,7 @@
 <template>
-  <a
-    href="#"
+  <!-- :href="`/category/detail/${id}`" -->
+  <div
+    @click="$router.push({ path: `/category/detail/${id}` })"
     class="min-h-[200px] flex flex-col items-center max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
   >
     <div class="my-4">
@@ -17,13 +18,17 @@
       </p>
       <p>Last Update {{ dateTime | timeAgo }}</p>
     </div>
-  </a>
+  </div>
 </template>
 
 <script>
 export default {
   name: "CardCategory",
   props: {
+    id: {
+      type: String,
+      default: "",
+    },
     icon: {
       type: String,
       default: "user",

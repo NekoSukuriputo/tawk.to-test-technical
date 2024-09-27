@@ -31,7 +31,7 @@ export default {
   actions: {
     async getCategories({ commit }) {
       try {
-        const {data: categories} = await api.getCategories();
+        const { data: categories } = await api.getCategories();
         const activeCategories = categories
           .filter((c) => c.enabled)
           .sort((a, b) => a.order - b.order);
@@ -43,7 +43,7 @@ export default {
     },
     async getCategory({ commit }, id) {
       try {
-        const category = await api.getCategory(id);
+        const { data: category } = await api.getCategory(id);
         commit("SET_CATEGORY", category);
       } catch (error) {
         console.log(error);

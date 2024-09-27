@@ -3,10 +3,10 @@
     class="flex flex-col items-center max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
   >
     <span class="flex flex-row items-end">
-      <i class="fa-solid fa-file"></i>
+      <i class="fas fa-file"></i>
     </span>
     <span>
-      <i :class="`fa-solid fa-${icon}`"></i>
+      <i :class="`fas fa-${icon}`"></i>
     </span>
     <p class="mb-3 text-lg font-bold">
       {{ title }}
@@ -16,7 +16,7 @@
     </p>
     <hr />
     <span>
-      <i class="fa-solid fa-info"></i>
+      <i class="fas fa-info"></i>
     </span>
     <p class="mb-3 font-normal text-slate-400">{{ description }}</p>
   </div>

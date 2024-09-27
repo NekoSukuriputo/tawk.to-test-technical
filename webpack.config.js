@@ -50,13 +50,23 @@ module.exports = {
   devServer: {
     contentBase: path.join(__dirname, "public"),
     port: 9000,
+    historyApiFallback: true,
     before: function (app, server, compiler) {
       app.get("/api/categories", function (req, res) {
         res.json(dataObj.categories);
       });
 
       app.get("/api/category/*", function (req, res) {
-        res.json(dataObj.articles);
+        let category = {};
+        const categoryId = req.params["0"];
+
+        for (let index = 0; index < dataObj.categories.length; index++) {
+          if (dataObj.categories[index].id === categoryId) {
+            category = dataObj.categories[index];
+            break;
+          }
+        }
+        res.json(category);
       });
 
       app.get("/api/author/*", function (req, res) {
