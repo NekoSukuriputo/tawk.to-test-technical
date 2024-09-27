@@ -1,14 +1,16 @@
 <template>
   <div class="mt-4">
-    <form class="max-w-lg mx-auto">
+    <form class="max-w-lg mx-auto" @submit.prevent="onSubmit">
       <div class="flex">
         <div class="relative w-full">
           <input
+            v-model="searchQuery"
             type="search"
             id="default-search"
             class="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-green-500 focus:border-green-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500"
             placeholder="Search for Answers..."
             required
+            @input="onInputChange"
           />
           <button
             type="submit"
@@ -38,8 +40,27 @@
 </template>
 
 <script>
+import { debounce } from "lodash";
 export default {
   name: "SearchBar",
+  data: {
+    searchQuery: "",
+  },
+  methods: {
+    async onSubmit() {
+      await this.$store.dispatch("category/searchCategory", this.searchQuery);
+    },
+    onInputChange(event) {
+      if (!event.target.value || event.target.value === "") {
+        this.$store.dispatch("category/getCategories");
+      } else {
+        debounce(
+          this.$store.dispatch("category/searchCategory", event.target.value),
+          500
+        );
+      }
+    },
+  },
 };
 </script>
 

@@ -65,5 +65,20 @@ export default {
         console.log(error);
       }
     },
+    async searchCategory({ commit }, searchQuery) {
+      try {
+        const { data: categories } = await api.getCategories();
+        const searchResult = categories
+          .filter(
+            (c) =>
+              c.title.toLowerCase().includes(searchQuery.toLowerCase()) &&
+              c.enabled
+          )
+          .sort((a, b) => a.order - b.order);
+        commit("SET_CATEGORIES", searchResult);
+      } catch (error) {
+        console.log(error);
+      }
+    },
   },
 };
