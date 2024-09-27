@@ -31,10 +31,11 @@ export default {
   actions: {
     async getCategories({ commit }) {
       try {
-        const categories = await api.getCategories();
+        const {data: categories} = await api.getCategories();
         const activeCategories = categories
           .filter((c) => c.enabled)
           .sort((a, b) => a.order - b.order);
+        // console.log("activeCategories :>> ", activeCategories);
         commit("SET_CATEGORIES", activeCategories);
       } catch (error) {
         console.log(error);

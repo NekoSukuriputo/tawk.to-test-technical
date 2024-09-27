@@ -6,17 +6,17 @@ Vue.use(VueRouter);
 const routes = [
   {
     path: "/",
-    component: () => import("../layouts/default.vue"),
+    component: () => import("@/layouts/default.vue"),
     children: [
       {
         path: "",
         name: "Home",
-        component: () => import("../views/Home/Index.vue"),
+        component: () => import("@/views/Home/Index.vue"),
       },
       {
         path: "/category/:slug",
         name: "Category",
-        component: () => import("../views/Article/Index.vue"),
+        component: () => import("@/views/Article/Index.vue"),
       },
     ],
   },

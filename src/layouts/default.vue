@@ -1,7 +1,7 @@
 <template>
-  <div class="container mx-auto">
-    <HeaderHero />
-    <div class="bg-gray-100">
+  <div class="container mx-auto min-h-screen flex flex-col">
+    <HeaderHero class="my-[3rem]" />
+    <div class="bg-gray-200">
       <router-view />
     </div>
   </div>
@@ -14,7 +14,7 @@ export default {
   components: {
     HeaderHero: Header,
   },
-}
+};
 </script>
 
 <style></style>

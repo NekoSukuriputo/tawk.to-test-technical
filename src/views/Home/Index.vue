@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <div class="bg-gray-100 grid grid-cols-1 md:grid-cols-3 gap-4">
+  <div class="p-5">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
       <div v-for="category in categories" :key="category.id">
         <CardCategory
           :category="category.title"

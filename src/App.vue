@@ -10,7 +10,6 @@ import { initFlowbite } from "flowbite";
 export default {
   mounted() {
     initFlowbite();
-    console.log('this.$store :>> ', this.$store);
   },
 };
 </script>

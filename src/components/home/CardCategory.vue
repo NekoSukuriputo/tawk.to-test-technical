@@ -1,9 +1,11 @@
 <template>
   <a
     href="#"
-    class="flex flex-col items-center max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
+    class="min-h-[200px] flex flex-col items-center max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
   >
-    <i :class="`fa-solid fa-${icon}`"></i>
+    <div class="my-4">
+      <i :class="`fas fa-${icon} fa-2x text-green-400`"></i>
+    </div>
     <h5
       class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
     >
