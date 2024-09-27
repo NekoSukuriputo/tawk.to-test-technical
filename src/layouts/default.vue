@@ -1,7 +1,7 @@
 <template>
   <div class="container mx-auto min-h-screen flex flex-col">
     <HeaderHero class="my-[3rem]" />
-    <div class="bg-gray-200">
+    <div class="bg-gray-200 flex-grow">
       <router-view />
     </div>
   </div>

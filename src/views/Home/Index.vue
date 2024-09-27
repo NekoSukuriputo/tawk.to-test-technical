@@ -1,5 +1,5 @@
 <template>
-  <div class="p-5">
+  <div class="m-20">
     <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
       <div v-for="category in categories" :key="category.id">
         <CardCategory
